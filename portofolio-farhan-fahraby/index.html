@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Farhan Fahraby | Web & Mobile Developer</title>
+    <meta name="description" content="Portfolio of Muhammad Farhan Fahraby — Enthusiastic Web & Mobile Developer from Malang, specializing in Laravel, Flutter, Next.js, and TypeScript.">
+    <meta name="author" content="Muhammad Farhan Fahraby">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* ===== RESPONSIVE TYPOGRAPHY FIX ===== */
+        :root {
+            --fs-huge:   clamp(3.2rem, 8vw, 7.2rem);
+            --fs-h1:     clamp(2rem, 4vw, 3.6rem);
+            --fs-h2:     clamp(1.5rem, 3vw, 2.4rem);
+            --fs-h3:     clamp(1.2rem, 2.5vw, 1.8rem);
+            --fs-body:   clamp(1rem, 1.5vw, 1.2rem);
+            --fs-small:  clamp(0.85rem, 1.2vw, 1rem);
+            --fs-pretitle: clamp(0.7rem, 1vw, 0.85rem);
+        }
+
+        /* Override huge title to be responsive */
+        .text-huge-title {
+            font-size: var(--fs-huge) !important;
+            line-height: 1.1 !important;
+        }
+
+        .text-pretitle {
+            font-size: var(--fs-pretitle) !important;
+        }
+
+        .attention-getter {
+            font-size: var(--fs-body) !important;
+            line-height: 1.75 !important;
+        }
+
+        .h1 {
+            font-size: var(--fs-h1) !important;
+            line-height: 1.2 !important;
+        }
+
+        .skills-list.h1 li {
+            font-size: var(--fs-h1) !important;
+            line-height: 1.2 !important;
+        }
+
+        .timeline__title {
+            font-size: var(--fs-h3) !important;
+        }
+
+        .timeline__meta {
+            font-size: var(--fs-body) !important;
+        }
+
+        .timeline__desc p {
+            font-size: var(--fs-body) !important;
+            line-height: 1.75 !important;
+        }
+
+        /* Contact section */
+        .contact-top .h1 {
+            font-size: var(--fs-h1) !important;
+        }
+
+        /* ===== SKILL BADGES ===== */
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.25s ease;
+        }
+
+        .skill-badge:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.35);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .skill-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot-ts   { background: #3178c6; }
+        .dot-php  { background: #8892be; }
+        .dot-dart { background: #00B4D8; }
+        .dot-js   { background: #f7df1e; }
+        .dot-cs   { background: #9B59B6; }
+        .dot-html { background: #e34c26; }
+        .dot-db   { background: #4DB33D; }
+        .dot-next { background: #ffffff; }
+        .dot-laravel { background: #FF2D20; }
+        .dot-flutter { background: #54C5F8; }
+
+        /* ===== GITHUB STATS STRIP ===== */
+        .github-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .github-stat-item {
+            text-align: center;
+            flex: 1 1 100px;
+        }
+
+        .github-stat-item .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .github-stat-item .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-top: 0.4rem;
+        }
+
+        /* ===== PROJECT TECH TAGS ===== */
+        .modal-popup__tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: 'Inter', monospace;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== FOLIO ITEM CAT COLORS ===== */
+        .folio-list__item-cat {
+            font-size: clamp(0.65rem, 1vw, 0.75rem) !important;
+        }
+
+        .folio-list__item-title {
+            font-size: clamp(1.3rem, 2.5vw, 2rem) !important;
+        }
+
+        /* ===== RESPONSIVE NAV ===== */
+        @media screen and (max-width: 800px) {
+            .skill-badges {
+                gap: 0.6rem;
+            }
+            .github-stats {
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===== INTRO SECTION responsive ===== */
+        @media screen and (max-width: 600px) {
+            .text-huge-title {
+                font-size: clamp(2.8rem, 12vw, 5rem) !important;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .ss-copyright span {
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem) !important;
+        }
+
+        /* ===== CONTACT LINKS ===== */
+        .contact-links a {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
+        }
+
+        .contact-social li a {
+            font-size: clamp(0.85rem, 1.3vw, 1rem) !important;
+        }
+
+        /* Subtle glow on intro name */
+        .intro-highlight {
+            color: #cf6363;
+        }
+
+        /* ===== ABOUT SECTION FIX — hapus offset bawaan template ===== */
+        /* Template asli punya padding-left di about-info__text untuk layout 2-kolom,
+           kita override agar layout stacked berfungsi dengan benar */
+        .s-about .about-info {
+            overflow: visible;
+        }
+
+        .s-about .about-info .column {
+            box-sizing: border-box;
+        }
+
+        /* Pastikan attention-getter text tidak terpotong */
+        .s-about .attention-getter {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        /* about-info row: full width, tidak ada clip */
+        .row.about-info.wide {
+            max-width: 100%;
+            overflow: visible;
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+
+    <!-- # preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
+
+
+    <!-- # page wrap
+    ================================================== -->
+    <div class="s-pagewrap">
+
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <!-- ## site header 
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header-mobile">
+                <span class="mobile-home-link"><a href="index.html">Farhan.</a></span>
+                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <div class="row wide main-nav-wrap">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a href="index.html" class="home-link">Farhan.</a></li>
+                        <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
+                        <li><a href="#about" class="smoothscroll">About</a></li>
+                        <li><a href="#works" class="smoothscroll">Works</a></li>
+                        <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header> <!-- end s-header -->
+
+
+        <!-- ## main content
+        ==================================================- -->
+        <main class="s-content">
+
+
+            <!-- ### intro
+            ================================================== -->
+            <section id="intro" class="s-intro target-section">
+
+                <div class="row intro-content wide">
+
+                    <div class="column">
+                        <div class="text-pretitle with-line">
+                            Hello World
+                        </div>
+
+                        <h1 class="text-huge-title">
+                            I am <span class="intro-highlight">Farhan</span> <br>
+                            Fahraby, <br>
+                            a Web &amp; Mobile <br>
+                            Developer <br>
+                            based in Malang.
+                        </h1>
+                    </div>
+
+                    <ul class="intro-social">
+                        <li><a href="https://github.com/fahrabyf200" target="_blank" rel="noopener">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/farhan-fahraby-133a10298/" target="_blank" rel="noopener">Linkedin</a></li>
+                        <li><a href="https://www.instagram.com/farhan.fahraby/" target="_blank" rel="noopener">Instagram</a></li>
+                    </ul>
+
+                </div> <!-- end intro content -->
+
+                <a href="#about" class="intro-scrolldown smoothscroll">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        fill-rule="evenodd" clip-rule="evenodd">
+                        <path
+                            d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" />
+                    </svg>
+                </a>
+
+            </section> <!-- end s-intro -->
+
+
+            <!-- ### about
+            ================================================== -->
+            <section id="about" class="s-about target-section">
+
+
+                <div class="row about-info wide" data-animate-block>
+
+                    <!-- Photo — centered -->
+                    <div class="column lg-12" style="text-align: center; margin-bottom: 4rem;" data-animate-el>
+                        <img src="images/about-photo.jpg"
+                            srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x"
+                            alt="Muhammad Farhan Fahraby"
+                            class="about-info__pic"
+                            style="max-width: 380px; display: inline-block;">
+                    </div>
+
+                    <!-- Text block — centered -->
+                    <div class="column lg-12" style="text-align: center;" data-animate-el>
+
+                        <h2 class="text-pretitle with-line" style="text-align: center; justify-content: center;">
+                            About Me
+                        </h2>
+                        <p class="attention-getter" style="text-align: center; max-width: 720px; margin-left: auto; margin-right: auto;">
+                            I am a student of Informatics Engineering at the State Polytechnic of Malang,
+                            passionate about web and mobile development. I specialize in building clean,
+                            efficient, and scalable applications — from IoT dashboards with TypeScript,
+                            Flutter weather apps, to web solutions with Laravel. I continuously learn
+                            and adapt to new technologies to deliver impactful digital experiences.
+                        </p>
+
+                        <!-- GitHub Stats -->
+                        <div class="github-stats" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+                            <div class="github-stat-item">
+                                <div class="stat-number">32+</div>
+                                <div class="stat-label">Repositories</div>
+                            </div>
+                            <div class="github-stat-item">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="github-stat-item">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                            <div class="github-stat-item">
+                                <div class="stat-number">2023</div>
+                                <div class="stat-label">Started Coding</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- about-info -->
+
+
+                <div class="row about-expertise" data-animate-block>
+                    <div class="column lg-12">
+
+                        <h2 class="text-pretitle" data-animate-el>Tech Stack & Expertise</h2>
+
+                        <!-- Skill Badges replacing the big list -->
+                        <div class="skill-badges" data-animate-el>
+                            <span class="skill-badge"><span class="dot dot-ts"></span>TypeScript</span>
+                            <span class="skill-badge"><span class="dot dot-next"></span>Next.js</span>
+                            <span class="skill-badge"><span class="dot dot-laravel"></span>Laravel</span>
+                            <span class="skill-badge"><span class="dot dot-flutter"></span>Flutter / Dart</span>
+                            <span class="skill-badge"><span class="dot dot-php"></span>PHP</span>
+                            <span class="skill-badge"><span class="dot dot-js"></span>JavaScript</span>
+                            <span class="skill-badge"><span class="dot dot-html"></span>HTML &amp; CSS</span>
+                            <span class="skill-badge"><span class="dot dot-cs"></span>C#</span>
+                            <span class="skill-badge"><span class="dot dot-db"></span>MySQL</span>
+                            <span class="skill-badge"><span class="dot dot-next"></span>Docker &amp; CI/CD</span>
+                            <span class="skill-badge"><span class="dot dot-flutter"></span>IoT Dashboard</span>
+                            <span class="skill-badge"><span class="dot dot-js"></span>UI/UX Principles</span>
+                        </div>
+
+                    </div>
+                </div> <!-- end about-expertise -->
+
+
+                <div class="row about-timelines" data-animate-block>
+
+                    <div class="column lg-6 tab-12">
+
+                        <h2 class="text-pretitle" data-animate-el>
+                            Experience
+                        </h2>
+
+                        <div class="timeline" data-animate-el>
+
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Forsimpro</h4>
+                                    <h5 class="timeline__meta">Head of Organizing Committee – School Visit Program</h5>
+                                    <p class="timeline__timeframe">January 2024</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <p>Led the planning and execution of school visit programs.
+                                    Coordinated committee members and managed event operations.
+                                    Ensured all activities ran effectively and met program objectives.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">HMTI Polinema</h4>
+                                    <h5 class="timeline__meta">Event Committee Staff</h5>
+                                    <p class="timeline__timeframe">August 2024 – December 2024</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <p>Supported the preparation and execution of student events and activities.
+                                    Collaborated with the team on event coordination and logistics.
+                                    Contributed to problem-solving and smooth event operations.</p>
+                                </div>
+                            </div>
+
+                        </div> <!-- end timeline -->
+
+                    </div> <!-- end column -->
+
+                    <div class="column lg-6 tab-12">
+
+                        <h2 class="text-pretitle" data-animate-el>
+                            Education
+                        </h2>
+
+                        <div class="timeline" data-animate-el>
+
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Politeknik Negeri Malang</h4>
+                                    <h5 class="timeline__meta">Diploma – Informatics Engineering</h5>
+                                    <p class="timeline__timeframe">2023 – Present</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <p>Studying Informatics Engineering with a focus on web &amp; mobile
+                                        development. Proficient in HTML, CSS, JavaScript, TypeScript,
+                                        Dart, PHP, and C#. Experienced in building web apps with
+                                        Laravel &amp; Next.js, and mobile apps with Flutter.</p>
+                                </div>
+                            </div>
+
+                        </div> <!-- end timeline -->
+
+                    </div> <!-- end column -->
+
+
+                </div> <!-- end about-timelines -->
+
+            </section> <!-- end s-about -->
+
+
+            <!-- ### works
+            ================================================== -->
+            <section id="works" class="s-works target-section">
+
+
+                <div class="row works-portfolio">
+
+                    <div class="column lg-12" data-animate-block>
+
+                        <h2 class="text-pretitle" data-animate-el>
+                            Recent Works
+                        </h2>
+                        <p class="h1" data-animate-el>
+                            Here are some of my favorite projects I have done lately. Feel free to check them out.
+                        </p>
+
+                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-01">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/air_quality.png"
+                                            srcset="images/portfolio/air_quality.png 1x, images/portfolio/air_quality.png 2x"
+                                            alt="Air Quality Dashboard">
+                                    </div>
+
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            TypeScript · IoT Dashboard
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Air Quality Dashboard.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://github.com/fahrabyf200/air-quality-dashboard" target="_blank" rel="noopener" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-03">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/weather_app.png"
+                                            srcset="images/portfolio/weather_app.png 1x, images/portfolio/weather_app.png 2x"
+                                            alt="Flutter Weather App">
+                                    </div>
+
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Flutter · Dart · Real-time API
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            App Cuaca Flutter.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://github.com/fahrabyf200/app_cuaca_flutter" target="_blank" rel="noopener" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-05">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/DesaKita.png"
+                                            srcset="images/portfolio/DesaKita.png 1x, images/portfolio/DesaKita@2x.png 2x"
+                                            alt="Desa Kita Project">
+                                    </div>
+
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Website · PHP
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Desa Kita.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://github.com/fahrabyf200" target="_blank" rel="noopener" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+
+
+                        </ul> <!-- end folio-list -->
+
+                    </div> <!-- end column -->
+
+
+                    <!-- Modal Templates Popup
+                    -------------------------------------------- -->
+                    <div id="modal-01" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/air_quality.png" alt="Air Quality IoT Dashboard">
+
+                            <div class="modal-popup__desc">
+                                <h5>Air Quality Dashboard</h5>
+                                <p>Dashboard IoT untuk monitoring kualitas udara secara real-time. Menampilkan
+                                    data CO₂, NH₃, suhu, dan kelembapan dengan visualisasi grafik dan sistem
+                                    notifikasi alert. Dilengkapi fitur laporan historis dan manajemen profil pengguna.</p>
+                                <div class="modal-popup__tech">
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">HTML/CSS</span>
+                                    <span class="tech-tag">IoT Sensor</span>
+                                    <span class="tech-tag">Chart.js</span>
+                                </div>
+                                <ul class="modal-popup__cat">
+                                    <li>IoT Dashboard</li>
+                                    <li>Real-time Monitoring</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://github.com/fahrabyf200/air-quality-dashboard" target="_blank" rel="noopener" class="modal-popup__details">Project link →</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+
+
+                    <div id="modal-03" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/weather_app.png" alt="Flutter Weather App">
+
+                            <div class="modal-popup__desc">
+                                <h5>App Cuaca Flutter</h5>
+                                <p>Aplikasi cuaca real-time berbasis Flutter/Dart yang menampilkan data cuaca
+                                    terkini, prakiraan per jam, dan prakiraan mingguan. Menggunakan API cuaca
+                                    eksternal untuk data akurat berdasarkan lokasi pengguna.</p>
+                                <div class="modal-popup__tech">
+                                    <span class="tech-tag">Flutter</span>
+                                    <span class="tech-tag">Dart</span>
+                                    <span class="tech-tag">REST API</span>
+                                    <span class="tech-tag">Mobile</span>
+                                </div>
+                                <ul class="modal-popup__cat">
+                                    <li>Mobile App</li>
+                                    <li>Real-time Data</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://github.com/fahrabyf200/app_cuaca_flutter" target="_blank" rel="noopener" class="modal-popup__details">Project link →</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+
+
+                    <div id="modal-05" hidden>
+                        <div class="modal-popup">
+
+                            <img src="images/portfolio/DesaKita.png" alt="Desa Kita">
+
+                            <div class="modal-popup__desc">
+                                <h5>Desa Kita</h5>
+                                <p>Aplikasi web untuk sistem informasi desa. Membantu pengelolaan data dan
+                                    informasi warga desa secara digital, meningkatkan transparansi dan
+                                    efisiensi administrasi pemerintahan desa.</p>
+                                <div class="modal-popup__tech">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <ul class="modal-popup__cat">
+                                    <li>Website</li>
+                                    <li>Information System</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://github.com/fahrabyf200" target="_blank" rel="noopener" class="modal-popup__details">Project link →</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+
+
+                </div> <!-- end works-portfolio -->
+
+
+
+
+        <!-- ### contact
+        ================================================== -->
+        <section id="contact" class="s-contact target-section">
+
+            <div class="row contact-top">
+                <div class="column lg-12">
+                    <h2 class="text-pretitle">
+                        Get In Touch
+                    </h2>
+
+                    <p class="h1">
+                        I love to hear from you.
+                        Whether you have a question or just want to collaborate —
+                        shoot me a message!
+                    </p>
+                </div>
+            </div> <!-- end contact-top -->
+
+            <div class="row contact-bottom">
+                <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
+                    <h3 class="text-pretitle">Reach me at</h3>
+                    <p class="contact-links">
+                        <a href="mailto:fahrabyf@gmail.com" class="mailtoui">fahrabyf@gmail.com</a> <br>
+                    </p>
+                </div>
+                <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+                    <h3 class="text-pretitle">Social</h3>
+                    <ul class="contact-social">
+                        <li><a href="https://www.linkedin.com/in/farhan-fahraby-133a10298/" target="_blank" rel="noopener">Linkedin</a></li>
+                        <li><a href="https://github.com/fahrabyf200" target="_blank" rel="noopener">Github</a></li>
+                        <li><a href="https://www.instagram.com/farhan.fahraby/" target="_blank" rel="noopener">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="column lg-4 md-12 contact-block">
+                    <a href="mailto:fahrabyf@gmail.com"
+                        class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello.</a>
+                </div>
+            </div> <!-- end contact-bottom -->
+
+        </section> <!-- end contact -->
+
+        </main> <!-- end s-content -->
+
+
+        <!-- ## footer
+        ================================================== -->
+        <footer class="s-footer">
+
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© 2025 Muhammad Farhan Fahraby</span>
+                    <span>Designed &amp; Built with ❤️ in Malang</span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <path
+                                d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </footer> <!-- end s-footer -->
+
+    </div> <!-- end -s-pagewrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
